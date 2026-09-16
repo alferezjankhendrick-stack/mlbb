@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DX Amethyst Management Portal</title>
+<style>
+:root {
+--bg-color: #0d0f17;
+--card-bg: rgba(22, 27, 38, 0.95);
+--accent-purple: #8a2be2;
+--accent-glow: #9d4edd;
+--text-color: #f1f1f1;
+--input-bg: rgba(15, 19, 29, 0.9);
+--border-color: #2a324b;
+--danger-red: #d9534f;
+--danger-hover: #c9302c;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: var(--bg-color);
+background-image: linear-gradient(rgba(13, 15, 23, 0.85), rgba(13, 15, 23, 0.85)), url('1.jpg');
+background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+background-size: cover;
+color: var(--text-color);
+margin: 0;
+padding: 30px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+box-sizing: border-box;
+transition: all 0.3s ease;
+}
+
+.container {
+width: 100%;
+max-width: 480px;
+background: var(--card-bg);
+border: 1px solid var(--border-color);
+border-radius: 12px;
+padding: 30px;
+box-shadow: 0 0 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(138, 43, 226, 0.35);
+backdrop-filter: blur(10px);
+box-sizing: border-box;
+transition: max-width 0.4s ease-in-out;
+}
+
+.container.wide-mode {
+max-width: 95vw;
+}
+
+body.align-top {
+align-items: flex-start;
+}
+
+header {
+text-align: center;
+border-bottom: 2px solid var(--border-color);
+padding-bottom: 20px;
+margin-bottom: 25px;
+}
+
+h1 {
+color: var(--accent-glow);
+text-transform: uppercase;
+letter-spacing: 2px;
+margin: 0;
+font-size: 22px;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.login-group {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+input {
+width: 100%;
+padding: 14px;
+background-color: var(--input-bg);
+border: 1px solid var(--border-color);
+border-radius: 8px;
+color: #fff;
+box-sizing: border-box;
+font-size: 15px;
+}
+
+input:focus {
+outline: none;
+border-color: var(--accent-purple);
+box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.btn {
+width: 100%;
+padding: 14px;
+background: linear-gradient(45deg, var(--accent-purple), var(--accent-glow));
+border: none;
+border-radius: 8px;
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s ease;
+}
+
+.btn:hover {
+opacity: 0.9;
+box-shadow: 0 0 20px rgba(157, 78, 221, 0.7);
+}
+
+.tab-buttons {
+display: flex;
+gap: 15px;
+margin-bottom: 25px;
+}
+
+.tab-btn {
+flex: 1;
+padding: 14px;
+background: var(--card-bg);
+border: 1px solid var(--border-color);
+color: white;
+cursor: pointer;
+border-radius: 8px;
+font-weight: 600;
+font-size: 16px;
+transition: 0.3s ease;
+}
+
+.tab-btn.active {
+background: var(--accent-purple);
+border-color: var(--accent-glow);
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 15px;
+font-size: 14px;
+}
+
+th, td {
+border: 1px solid var(--border-color);
+padding: 14px 16px;
+text-align: left;
+white-space: nowrap;
+}
+
+th {
+background: rgba(22, 27, 38, 0.95);
+color: var(--accent-glow);
+font-size: 15px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.status-badge {
+padding: 5px 12px;
+border-radius: 6px;
+font-size: 12px;
+font-weight: bold;
+display: inline-block;
+}
+
+.status-pending { background: #b8860b; color: #fff; }
+.status-approved { background: #2e8b57; color: #fff; }
+.status-declined { background: #d9534f; color: #fff; }
+
+.img-preview {
+max-width: 65px;
+max-height: 65px;
+border-radius: 6px;
+object-fit: cover;
+}
+
+.action-btn {
+padding: 8px 14px;
+background: var(--accent-purple);
+border: none;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 600;
+transition: 0.2s ease;
+}
+
+.action-btn:hover {
+background: var(--accent-glow);
+}
+
+.decline-btn {
+padding: 8px 14px;
+background: var(--danger-red);
+border: none;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 600;
+transition: 0.2s ease;
+}
+
+.decline-btn:hover {
+background: var(--danger-hover);
+}
+
+.delete-btn {
+padding: 8px 14px;
+background: #555;
+border: none;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 600;
+transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+background: #333;
+}
+
+.action-container {
+display: flex;
+gap: 8px;
+align-items: center;
+}
+
+.messenger-link {
+color: var(--accent-glow);
+text-decoration: underline;
+font-weight: bold;
+}
+
+.col-ign { min-width: 160px; font-weight: bold; }
+.col-id { min-width: 140px; }
+.col-team { min-width: 130px; }
+.col-role { min-width: 130px; }
+.col-handler { min-width: 120px; }
+.col-rank { min-width: 180px; }
+</style>
+</head>
+<body>
+
+<div class="container" id="mainContainer">
+<header>
+<h1 id="headerTitle">MANAGEMENT LOGIN</h1>
+</header>
+
+<div id="adminLogin">
+<div class="login-group">
+<input type="text" id="adminUser" placeholder="Username">
+<input type="password" id="adminPass" placeholder="Password">
+</div>
+<button class="btn" style="margin-top: 20px;" onclick="loginAdmin()">Login</button>
+</div>
+
+<div id="adminPanel" style="display: none;">
+<div class="tab-buttons">
+<button class="tab-btn active" onclick="switchTab('applications')">Applications History</button>
+<button class="tab-btn" onclick="switchTab('squads')">Squad Roster & IDs</button>
+</div>
+
+<div id="tabApplications">
+<h3 style="font-size: 20px; margin-bottom: 15px;">Player Applications History</h3>
+<div style="overflow-x:auto;">
+<table>
+<thead>
+<tr>
+<th class="col-ign">IGN</th>
+<th class="col-id">ID (Server)</th>
+<th class="col-team">Team</th>
+<th class="col-role">Role</th>
+<th class="col-handler">Handler</th>
+<th class="col-rank">Rank (Cur/High)</th>
+<th>Messenger</th>
+<th>Screenshot</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="appTableBody">
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="tabSquads" style="display: none;">
+<h3 style="font-size: 20px; margin-bottom: 15px;">Squad Roster Database</h3>
+<div style="overflow-x:auto;">
+<table>
+<thead>
+<tr>
+<th>Squad ID</th>
+<th>Squad Name</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>14993769</td><td>NOVA 1</td></tr>
+<tr><td>15104357</td><td>NOVA 2</td></tr>
+<tr><td>15105612</td><td>NOVA 3</td></tr>
+<tr><td>15108354</td><td>NOVA 4</td></tr>
+<tr><td>15050774</td><td>VANGUARD 1</td></tr>
+<tr><td>15100632</td><td>VANGUARD 2</td></tr>
+<tr><td>15101766</td><td>VANGUARD 3</td></tr>
+<tr><td>15111343</td><td>VANGUARD 4</td></tr>
+<tr><td>15021912</td><td>SOLAR 1</td></tr>
+<tr><td>14993534</td><td>SOLAR 2</td></tr>
+<tr><td>15051903</td><td>EXECRATION</td></tr>
+<tr><td>15099060</td><td>EMERCIAN</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function loginAdmin() {
+const user = document.getElementById('adminUser').value;
+const pass = document.getElementById('adminPass').value;
+
+if ((user === 'admin' && pass === 'admin123') || (user === 'owner' && pass === 'owner123')) {
+alert('Login successful! Welcome ' + user.toUpperCase());
+
+document.getElementById('mainContainer').classList.add('wide-mode');
+document.body.classList.add('align-top');
+document.getElementById('headerTitle').innerText = 'DX AMETHYST MANAGEMENT PORTAL';
+
+document.getElementById('adminLogin').style.display = 'none';
+document.getElementById('adminPanel').style.display = 'block';
+renderApplications();
+} else {
+alert('Invalid Admin/Owner Credentials.');
+}
+}
+
+function switchTab(tabName) {
+const tabs = document.querySelectorAll('.tab-btn');
+tabs.forEach(btn => btn.classList.remove('active'));
+
+if (tabName === 'applications') {
+tabs[0].classList.add('active');
+document.getElementById('tabApplications').style.display = 'block';
+document.getElementById('tabSquads').style.display = 'none';
+} else {
+tabs[1].classList.add('active');
+document.getElementById('tabApplications').style.display = 'none';
+document.getElementById('tabSquads').style.display = 'block';
+}
+}
+
+function renderApplications() {
+const tbody = document.getElementById('appTableBody');
+tbody.innerHTML = '';
+
+const applications = JSON.parse(localStorage.getItem('dx_applications')) || [];
+
+if (applications.length === 0) {
+tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding: 25px;">No applications recorded yet.</td></tr>';
+return;
+}
+
+applications.forEach(app => {
+const tr = document.createElement('tr');
+
+let statusClass = 'status-pending';
+if (app.status === 'Approved') statusClass = 'status-approved';
+if (app.status === 'Declined') statusClass = 'status-declined';
+
+let actionContent = `<div class="action-container">`;
+
+if (app.status === 'Pending') {
+actionContent += `
+<button class="action-btn" onclick="updateStatus(${app.id}, 'Approved')">Approve</button>
+<button class="decline-btn" onclick="updateStatus(${app.id}, 'Declined')">Decline</button>
+`;
+} else {
+actionContent += `
+<button class="action-btn" style="background:#444;" onclick="updateStatus(${app.id}, 'Pending')">Reset</button>
+`;
+}
+
+actionContent += `
+<button class="delete-btn" onclick="deleteApp(${app.id})">Delete</button>
+</div>
+`;
+
+tr.innerHTML = `
+<td class="col-ign">${app.ign}</td>
+<td class="col-id">${app.gameId}</td>
+<td class="col-team">${app.team}</td>
+<td class="col-role">${app.role}</td>
+<td class="col-handler">${app.handler}</td>
+<td class="col-rank">${app.currentRank} / ${app.highestRank}</td>
+<td><a href="${app.messengerLink}" target="_blank" class="messenger-link">View Profile</a></td>
+<td><img src="${app.imgData}" class="img-preview" alt="Status"></td>
+<td><span class="status-badge ${statusClass}">${app.status}</span></td>
+<td>${actionContent}</td>
+`;
+tbody.appendChild(tr);
+});
+}
+
+function updateStatus(id, newStatus) {
+let applications = JSON.parse(localStorage.getItem('dx_applications')) || [];
+const app = applications.find(a => a.id === id);
+if (app) {
+app.status = newStatus;
+localStorage.setItem('dx_applications', JSON.stringify(applications));
+renderApplications();
+}
+}
+
+function deleteApp(id) {
+if (confirm('Are you sure you want to permanently delete this application record?')) {
+let applications = JSON.parse(localStorage.getItem('dx_applications')) || [];
+applications = applications.filter(a => a.id !== id);
+localStorage.setItem('dx_applications', JSON.stringify(applications));
+renderApplications();
+}
+}
+</script>
+
+</body>
+</html>

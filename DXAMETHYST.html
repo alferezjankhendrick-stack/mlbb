@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DXAMETHYSTMLBBRECRUIT.com</title>
+<style>
+:root {
+--bg-color: #0d0f17;
+--card-bg: rgba(22, 27, 38, 0.88);
+--accent-purple: #8a2be2;
+--accent-glow: #9d4edd;
+--text-color: #f1f1f1;
+--input-bg: rgba(15, 19, 29, 0.9);
+--border-color: #2a324b;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: var(--bg-color);
+background-image: linear-gradient(rgba(13, 15, 23, 0.75), rgba(13, 15, 23, 0.75)), url('1.jpg');
+background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+background-size: cover;
+color: var(--text-color);
+margin: 0;
+padding: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 100vh;
+box-sizing: border-box;
+}
+
+.container {
+position: relative;
+width: 100%;
+max-width: 850px;
+background: var(--card-bg);
+border: 1px solid var(--border-color);
+border-radius: 12px;
+padding: 25px;
+box-shadow: 0 0 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(138, 43, 226, 0.3);
+backdrop-filter: blur(8px);
+margin-bottom: 25px;
+box-sizing: border-box;
+}
+
+.top-admin-btn {
+position: absolute;
+top: 20px;
+right: 20px;
+width: auto;
+padding: 8px 14px;
+font-size: 13px;
+background: #2a324b;
+border: 1px solid var(--border-color);
+color: #fff;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 600;
+transition: 0.3s ease;
+text-decoration: none;
+display: inline-block;
+}
+
+.top-admin-btn:hover {
+background: var(--accent-purple);
+}
+
+header {
+text-align: center;
+border-bottom: 2px solid var(--border-color);
+padding-bottom: 15px;
+margin-bottom: 25px;
+margin-top: 10px;
+}
+
+.site-logo {
+max-width: 140px;
+height: auto;
+margin-bottom: 10px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+filter: drop-shadow(0 0 10px rgba(157, 78, 221, 0.5));
+}
+
+h1 {
+color: var(--accent-glow);
+text-transform: uppercase;
+letter-spacing: 2px;
+margin: 0;
+font-size: 24px;
+}
+
+.subtitle {
+font-size: 14px;
+color: #aaa;
+margin-top: 5px;
+}
+
+.form-group {
+margin-bottom: 18px;
+}
+
+label {
+display: block;
+margin-bottom: 6px;
+font-weight: 600;
+font-size: 14px;
+}
+
+input, select {
+width: 100%;
+padding: 12px;
+background-color: var(--input-bg);
+border: 1px solid var(--border-color);
+border-radius: 6px;
+color: #fff;
+box-sizing: border-box;
+font-size: 14px;
+}
+
+input:focus, select:focus {
+outline: none;
+border-color: var(--accent-purple);
+box-shadow: 0 0 8px rgba(138, 43, 226, 0.4);
+}
+
+.inline-group {
+display: flex;
+gap: 15px;
+}
+
+.inline-group .form-group {
+flex: 1;
+}
+
+.btn {
+width: 100%;
+padding: 12px;
+background: linear-gradient(45deg, var(--accent-purple), var(--accent-glow));
+border: none;
+border-radius: 6px;
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s ease;
+}
+
+.btn:hover {
+opacity: 0.9;
+box-shadow: 0 0 15px rgba(157, 78, 221, 0.6);
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 15px;
+font-size: 14px;
+}
+
+th, td {
+border: 1px solid var(--border-color);
+padding: 12px 14px;
+text-align: left;
+white-space: nowrap;
+}
+
+th {
+background: rgba(22, 27, 38, 0.95);
+color: var(--accent-glow);
+font-size: 13px;
+text-transform: uppercase;
+}
+
+.status-badge {
+padding: 4px 10px;
+border-radius: 6px;
+font-size: 12px;
+font-weight: bold;
+display: inline-block;
+}
+
+.status-pending { background: #b8860b; color: #fff; }
+.status-approved { background: #2e8b57; color: #fff; }
+.status-declined { background: #d9534f; color: #fff; }
+
+.img-preview {
+max-width: 50px;
+max-height: 50px;
+border-radius: 4px;
+object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<a href="LOGIN.html" target="_blank" class="top-admin-btn">Admin / Owner Portal</a>
+
+<header>
+<img src="logo.jpg.jpg" alt="DX Amethyst Logo" class="site-logo">
+<h1>DXAMETHYSTMLBBRECRUIT</h1>
+<div class="subtitle">Official Mobile Legends Squad Recruitment Portal</div>
+</header>
+
+<form id="recruitmentForm" onsubmit="handleFormSubmit(event)">
+<div class="inline-group">
+<div class="form-group">
+<label for="ign">In-Game Name (IGN)</label>
+<input type="text" id="ign" required placeholder="e.g. KH E NJ">
+</div>
+<div class="form-group">
+<label for="gameId">ID & (Server)</label>
+<input type="text" id="gameId" required placeholder="e.g. 123456789 (1234)">
+</div>
+</div>
+
+<div class="inline-group">
+<div class="form-group">
+<label for="team">Select Target Squad/Team</label>
+<select id="team" required>
+<option value="">-- Select Team --</option>
+<option value="DX Nova 1">DX Nova 1</option>
+<option value="DX Nova 2">DX Nova 2</option>
+<option value="DX Nova 3">DX Nova 3</option>
+<option value="DX Nova 4">DX Nova 4</option>
+<option value="DX Vanguard 1">DX Vanguard 1</option>
+<option value="DX Vanguard 2">DX Vanguard 2</option>
+<option value="DX Vanguard 3">DX Vanguard 3</option>
+<option value="DX Vanguard 4">DX Vanguard 4</option>
+<option value="DX Solar 1">DX Solar 1</option>
+<option value="DX Solar 2">DX Solar 2</option>
+<option value="DX Execration">DX Execration</option>
+<option value="DX Emercian">DX Emercian</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="role">Primary Role / Position</label>
+<select id="role" required>
+<option value="">-- Select Role --</option>
+<option value="EXP Laner">EXP Laner</option>
+<option value="Gold Laner">Gold Laner</option>
+<option value="Mid Laner">Mid Laner</option>
+<option value="Jungler">Jungler</option>
+<option value="Roamer">Roamer</option>
+<option value="Multi-Role / Flexible">Multi-Role / Flexible</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label for="handler">Select Handler / Recruiter</label>
+<select id="handler" required>
+<option value="">-- Select Assigned Person to Handle You --</option>
+<option value="Bloom">Bloom</option>
+<option value="Cassandra">Cassandra</option>
+<option value="Gaara">Gaara</option>
+<option value="Zoey">Zoey</option>
+<option value="Sammi">Sammi</option>
+</select>
+</div>
+
+<div class="inline-group">
+<div class="form-group">
+<label for="currentRank">Current Rank</label>
+<select id="currentRank" required>
+<option value="Epic">Epic</option>
+<option value="Legend">Legend</option>
+<option value="Mythic">Mythic</option>
+<option value="Mythical Honor">Mythical Honor</option>
+<option value="Mythical Glory">Mythical Glory</option>
+<option value="Mythic Immortal">Mythic Immortal</option>
+</select>
+</div>
+<div class="form-group">
+<label for="highestRank">Highest Rank Achieved</label>
+<input type="text" id="highestRank" required placeholder="e.g. Mythic Immortal 100+ Stars">
+</div>
+</div>
+
+<div class="form-group">
+<label for="accountStatusImg">Upload Account Status Screenshot (Profile/Stats)</label>
+<input type="file" id="accountStatusImg" accept="image/*" required>
+</div>
+
+<div class="form-group">
+<label for="messengerLink">Your Facebook Profile or Messenger Link</label>
+<input type="url" id="messengerLink" required placeholder="https://m.me/your.username">
+</div>
+
+<button type="submit" class="btn">Submit Application & Join Messenger</button>
+</form>
+</div>
+
+<div class="container">
+<h2 style="color: var(--accent-glow); margin-top: 0;">Application History</h2>
+<div style="overflow-x:auto;">
+<table>
+<thead>
+<tr>
+<th>IGN</th>
+<th>ID (Server)</th>
+<th>Team</th>
+<th>Role</th>
+<th>Handler</th>
+<th>Rank (Cur/High)</th>
+<th>Screenshot</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="publicAppTableBody">
+</tbody>
+</table>
+</div>
+</div>
+
+<script>
+const OFFICIAL_MESSENGER_URL = "https://m.me/";
+
+document.addEventListener('DOMContentLoaded', renderPublicHistory);
+
+function handleFormSubmit(event) {
+event.preventDefault();
+
+const fileInput = document.getElementById('accountStatusImg');
+const file = fileInput.files[0];
+
+if (!file) {
+alert("Please upload an account screenshot.");
+return;
+}
+
+const reader = new FileReader();
+reader.onload = function(e) {
+const img = new Image();
+img.onload = function() {
+// Compress screenshot via Canvas before saving to fit within LocalStorage
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+const maxWidth = 400;
+const scaleSize = maxWidth / img.width;
+canvas.width = maxWidth;
+canvas.height = img.height * scaleSize;
+
+ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+const compressedBase64 = canvas.toDataURL('image/jpeg', 0.6);
+
+saveApplication(compressedBase64);
+};
+img.src = e.target.result;
+};
+reader.readAsDataURL(file);
+}
+
+function saveApplication(imgData) {
+const newApplication = {
+id: Date.now(),
+ign: document.getElementById('ign').value,
+gameId: document.getElementById('gameId').value,
+team: document.getElementById('team').value,
+role: document.getElementById('role').value,
+handler: document.getElementById('handler').value,
+currentRank: document.getElementById('currentRank').value,
+highestRank: document.getElementById('highestRank').value,
+messengerLink: document.getElementById('messengerLink').value,
+imgData: imgData,
+status: 'Pending'
+};
+
+try {
+let storedApps = JSON.parse(localStorage.getItem('dx_applications')) || [];
+storedApps.push(newApplication);
+localStorage.setItem('dx_applications', JSON.stringify(storedApps));
+
+renderPublicHistory();
+alert('Application Submitted Successfully! Directing you to Messenger...');
+window.open(OFFICIAL_MESSENGER_URL, '_blank');
+document.getElementById('recruitmentForm').reset();
+} catch (e) {
+alert('Storage error: Local Storage capacity exceeded. Please contact admin.');
+}
+}
+
+function renderPublicHistory() {
+const tbody = document.getElementById('publicAppTableBody');
+if (!tbody) return;
+tbody.innerHTML = '';
+
+const applications = JSON.parse(localStorage.getItem('dx_applications')) || [];
+
+if (applications.length === 0) {
+tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 20px;">No application records found.</td></tr>';
+return;
+}
+
+applications.forEach(app => {
+const tr = document.createElement('tr');
+let statusClass = 'status-pending';
+if (app.status === 'Approved') statusClass = 'status-approved';
+if (app.status === 'Declined') statusClass = 'status-declined';
+
+tr.innerHTML = `
+<td style="font-weight: bold;">${app.ign}</td>
+<td>${app.gameId}</td>
+<td>${app.team}</td>
+<td>${app.role}</td>
+<td>${app.handler}</td>
+<td>${app.currentRank} / ${app.highestRank}</td>
+<td><img src="${app.imgData}" class="img-preview" alt="Proof"></td>
+<td><span class="status-badge ${statusClass}">${app.status}</span></td>
+`;
+tbody.appendChild(tr);
+});
+}
+</script>
+
+</body>
+</html>
